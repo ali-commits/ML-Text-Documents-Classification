@@ -3,6 +3,7 @@ body {
   padding: 0;
   font-family: sans-serif;
   background: #10ac84;
+  font-family: "Nunito", sans-serif;
 }
 
 nav {
@@ -10,12 +11,20 @@ nav {
   text-align: center;
   height: 80px;
   transform: translate(0, -40%);
+  box-shadow: 0px 1px 1px green;
 }
 
 nav h1 {
+  position: relative;
   color: #ffffff;
-  transform: translate(0, 60%);
+  top: 50%;
+  transform: translate(0, -50%);
   font-size: 32px;
+  text-transform: uppercase;
+  /* font-family: "Nunito", sans-serif; */
+  /* font-family: "Abel", sans-serif; */
+  /* font-family: "Righteous", cursive; */
+  /* font-family: "Orbitron", sans-serif; */
 }
 .box {
   width: 90%;
@@ -46,6 +55,7 @@ nav h1 {
   max-height: 500px;
   resize: none;
   max-height: 300px;
+  text-align: justify;
 }
 
 .box textarea:focus {
@@ -78,23 +88,5 @@ nav h1 {
 
 ::placeholder {
   color: #c8d6e5;
-}
-
-/**/
-.noscroll {
-  overflow: hidden;
-  resize: none;
-}
-.hiddendiv {
-  display: none;
-  white-space: pre-wrap;
-  width: 500px;
-  min-height: 50px;
-  font-family: Arial, sans-serif;
-  font-size: 13px;
-  padding: 5px;
-  word-wrap: break-word;
-}
-.lbr {
-  line-height: 3px;
+  font-family: "Nunito", sans-serif;
 }
