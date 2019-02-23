@@ -2,16 +2,17 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
-  background: #10ac84;
+  background: #78909c;
   font-family: "Nunito", sans-serif;
 }
 
 nav {
-  background: #2ecc71;
+  background: #455a64;
   text-align: center;
   height: 80px;
   transform: translate(0, -40%);
-  box-shadow: 0px 1px 1px green;
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2), 0 2px 8px 0 rgba(0, 0, 0, 0.19);
+  min-width: 450px;
 }
 
 nav h1 {
@@ -27,7 +28,7 @@ nav h1 {
   /* font-family: "Orbitron", sans-serif; */
 }
 .box {
-  width: 90%;
+  min-width: 450px;
   padding: 25px;
   position: absolute;
   top: 10%;
@@ -35,36 +36,35 @@ nav h1 {
   transform: translate(-50%, 0);
   background: none;
   text-align: center;
-  /* border: 2px solid #3498db; */
-  border-radius: 10px;
+  background: #263238;
+  width: 65%;
+  height: 82%;
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2), 0 2px 8px 0 rgba(0, 0, 0, 0.19);
 }
 
 .box textarea {
-  border: 2px solid #2ecc71;
+  border: 2px solid #455a64;
   background: none;
   display: block;
   margin: 20px auto;
   text-align: center;
   padding: 14px 10px;
-  width: 50%;
+  width: 60%;
   outline: none;
   color: white;
   border-radius: 10px;
   transition: 0.25s;
   color: white;
-  max-height: 500px;
   resize: none;
-  max-height: 300px;
   text-align: justify;
 }
 
 .box textarea:focus {
-  width: 75%;
-  border-color: #2ecc71;
+  width: 80%;
 }
 
 .box input[type="submit"] {
-  border: 2px solid #2ecc71;
+  border: 2px solid #455a64;
   background: none;
   display: block;
   margin: 20px auto;
@@ -78,7 +78,7 @@ nav h1 {
 }
 
 .box input[type="submit"]:hover {
-  background: #2ecc71;
+  background: #455a64;
 }
 
 .box h3 {
