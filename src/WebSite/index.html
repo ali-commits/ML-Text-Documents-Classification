@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8" />
@@ -7,25 +7,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />     
   </head>
   <body>
+      <form action="index.html" class="box" method="post">
+          <h3>Classify Text</h3>
+          <textarea
+            class="form-control"
+            id="text"
+            name="text"
+            placeholder="Paste text here to classify"
+            required
+            autocomplete="off"
+            rows="6"
+          ></textarea>
+          <input type="submit" class="btn" value="Classify" />
+        </form>
+      </div>
     <nav class="navbar ">    
             <h1>News Classifier</h1>
     </nav>
 
     <div class=>
       
-      <form action="index.html" class="box" method="post">
-        <h3>Classify Text</h3>
-        <textarea
-          class="form-control"
-          id="text"
-          name="text"
-          placeholder="Enter the text to classify"
-          required
-          autocomplete="off"
-        ></textarea>
-        <input type="submit" class="btn" value="Classify" />
-      </form>
-    </div>
+      
 
     <!-- <div class="footer"> 
       <div class="col-md-4">
@@ -41,9 +43,8 @@
         </p>
       </div>
     </div>-->
-
+    <link href="https://fonts.googleapis.com/css?family=Abel|Felipa|Muli|Nova+Flat|Nunito|Orbitron|Poppins|Righteous|Roboto+Mono" rel="stylesheet">
     <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
-    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
     <script src="main.js"></script>
   </body>
 </html>
