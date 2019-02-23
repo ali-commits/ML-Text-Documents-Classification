@@ -57,6 +57,7 @@ nav h1 {
   color: white;
   resize: none;
   text-align: justify;
+  max-height: 70%;
 }
 
 .box textarea:focus {
@@ -89,4 +90,23 @@ nav h1 {
 ::placeholder {
   color: #c8d6e5;
   font-family: "Nunito", sans-serif;
+  text-align: center;
+}
+::-webkit-scrollbar {
+  background: none;
+  width: 14px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: none;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  cursor: pointer;
+  background: #455a64;
+  border: 4px solid rgba(0, 0, 0, 0);
+  background-clip: padding-box;
 }
