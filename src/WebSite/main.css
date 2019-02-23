@@ -7,19 +7,20 @@ body {
 }
 
 nav {
+  position: fixed;
+  width: 100%;
   background: #455a64;
   text-align: center;
   height: 80px;
-  transform: translate(0, -40%);
+  /* transform: translate(0, -40%); */
   box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2), 0 2px 8px 0 rgba(0, 0, 0, 0.19);
   min-width: 450px;
 }
 
 nav h1 {
-  position: relative;
   color: #ffffff;
-  top: 50%;
-  transform: translate(0, -50%);
+  /* top: 50%; */
+  /* transform: translate(0, -50%); */
   font-size: 32px;
   text-transform: uppercase;
   /* font-family: "Nunito", sans-serif; */
@@ -31,17 +32,19 @@ nav h1 {
   min-width: 450px;
   padding: 25px;
   position: absolute;
-  top: 10%;
   left: 50%;
   transform: translate(-50%, 0);
   background: none;
   text-align: center;
   background: #263238;
   width: 65%;
-  height: 82%;
+  height: 100%;
   box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2), 0 2px 8px 0 rgba(0, 0, 0, 0.19);
 }
-
+.form {
+  position: relative;
+  top: 10%;
+}
 .box textarea {
   border: 2px solid #455a64;
   background: none;
@@ -57,7 +60,7 @@ nav h1 {
   color: white;
   resize: none;
   text-align: justify;
-  max-height: 70%;
+  max-height: 60%;
 }
 
 .box textarea:focus {
@@ -110,4 +113,3 @@ nav h1 {
   border: 3px solid rgba(0, 0, 0, 0);
   background-clip: padding-box;
 }
-
