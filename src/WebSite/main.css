@@ -60,7 +60,7 @@ nav h1 {
   color: white;
   resize: none;
   text-align: justify;
-  max-height: 60%;
+  max-height: 400px;
 }
 
 .box textarea:focus {
