@@ -10,10 +10,7 @@ from sklearn.svm import SVC
 
 
 def clean_str(string):
-    """
-    Tokenization/string cleaning for datasets.
-    Original taken from https://github.com/yoonkim/CNN_sentence/blob/master/process_data.py
-    """
+   
     string = re.sub(r"\'s", "", string)
     string = re.sub(r"\'ve", "", string)
     string = re.sub(r"n\'t", "", string)
@@ -50,7 +47,6 @@ X_train, X_test, y_train, y_test = train_test_split(X, Y, test_size=0.30, random
 print("train size:", X_train.shape)
 print("test size:", X_test.shape)
 
-# model = RandomForestClassifier(n_estimators=300, max_depth=150,n_jobs=1)
 model = SVC(gamma='scale', kernel='rbf', probability=True)
 model.fit(X_train, y_train)
 
