@@ -7,6 +7,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score, cohen_kappa_score, confusion_matrix
 from sklearn.svm import SVC
+import pickle
 
 
 def clean_str(string):
@@ -23,7 +24,7 @@ def clean_str(string):
     string = re.sub(r"\)", "", string)
     string = re.sub(r"\?", "", string)
     string = re.sub(r"'", "", string)
-    string = re.sub(r"[^A-Za-z0-9(),!?\'\`]", " ", string)
+    # string = re.sub(r"[^A-Za-z0-9(),!?\'\`]", " ", string)
     string = re.sub(r"[0-9]\w+|[0-9]","", string)
     string = re.sub(r"\s{2,}", " ", string)
     return string.strip().lower()
@@ -43,6 +44,8 @@ Y = np.array(y)
 print("no of features extracted:",X.shape[1])
 
 X_train, X_test, y_train, y_test = train_test_split(X, Y, test_size=0.30, random_state=42)
+# for i,j in zip(X_test,y_test):
+#     print(i,j)
 
 print("train size:", X_train.shape)
 print("test size:", X_test.shape)
@@ -51,11 +54,11 @@ model = SVC(gamma='scale', kernel='rbf', probability=True)
 model.fit(X_train, y_train)
 
 y_pred = model.predict(X_test)
-c_mat = confusion_matrix(y_test,y_pred)
-kappa = cohen_kappa_score(y_test,y_pred)
+# c_mat = confusion_matrix(y_test,y_pred)
+#kappa = cohen_kappa_score(y_test,y_pred)
 acc = accuracy_score(y_test,y_pred)
-print("Confusion Matrix:\n", c_mat)
-print("\nKappa: ",kappa)
+#print("Confusion Matrix:\n", c_mat)
+#print("\nKappa: ",kappa)
 print("\nAccuracy: ",acc)
 
 
