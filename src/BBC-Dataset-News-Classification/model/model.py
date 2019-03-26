@@ -1,10 +1,10 @@
 import re
 import pandas as pd
 from sklearn.feature_extraction.text import TfidfVectorizer
-from textblob import Word
+# from textblob import Word
 import numpy as np
 from sklearn.model_selection import train_test_split
-from sklearn.ensemble import RandomForestClassifier
+# from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score, cohen_kappa_score, confusion_matrix
 from sklearn.svm import SVC
 import pickle
@@ -19,7 +19,8 @@ def clean_str(string):
     string = re.sub(r"\'d", "", string)
     string = re.sub(r"\'ll", "", string)
     string = re.sub(r",", "", string)
-    string = re.sub(r"!", " ! ", string)
+    # string = re.sub(r"!", " ! ", string)
+    string = re.sub(r"!", "", string)
     string = re.sub(r"\(", "", string)
     string = re.sub(r"\)", "", string)
     string = re.sub(r"\?", "", string)
@@ -35,7 +36,8 @@ y = data['type'].tolist()
 
 for index,value in enumerate(x):
     print("processing data:",index)
-    x[index] = ' '.join([Word(word).lemmatize() for word in clean_str(value).split()])
+    # x[index] = ' '.join([Word(word).lemmatize() for word in clean_str(value).split()])
+    x[index] = ' '.join([word for word in clean_str(value).split()])
 
 vect = TfidfVectorizer(stop_words='english',min_df=2)
 X = vect.fit_transform(x)
