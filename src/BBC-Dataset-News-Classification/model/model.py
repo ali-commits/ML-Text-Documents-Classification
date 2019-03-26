@@ -31,8 +31,9 @@ x = data['news'].tolist()
 y = data['type'].tolist()
 
 for index,value in enumerate(x):
-    print("processing data:", index, end="\r")
+    print( "processing data:", index, end="\r" )
     x[index] = ' '.join([word for word in stringClean(value).split()])
+print( "processing data:",len(x))
 
 vect = TfidfVectorizer(stop_words='english',min_df=2)
 X = vect.fit_transform(x)
@@ -45,9 +46,14 @@ X_train, X_test, y_train, y_test = train_test_split(X, Y, test_size=0.30, random
 print("train size:", X_train.shape)
 print("test size:", X_test.shape)
 
-model = SVC(gamma='scale', kernel='rbf', probability=True)
-model.fit(X_train, y_train)
+# model = SVC(gamma='scale', kernel='rbf', probability=True)
+# model.fit(X_train, y_train)
 
+# with open("model.bin", "wb") as modelFile:
+#     pickle.dump(model, modelFile)
+
+with open("model.bin", "rb") as modelFile:
+    model = pickle.load(modelFile)
 y_pred = model.predict(X_test)
 acc = accuracy_score(y_test,y_pred)
 print("\nAccuracy:  ", round(acc*100,2), "%", sep="")
