@@ -8,37 +8,19 @@ import pickle
 with open("model.bin", "rb") as modelFile:
     model = pickle.load(modelFile)
 
-Y = np.array(['sport'])    
+Y = np.array(['sport'])
 
 
-news = """but the match was overshadowed by racist chanting from some home fans directed at several England players, including Danny Rose.
+news = """It's what representing their country is all about -- walking out in New Zealand's All Blacks jersey, facing their opposition, and delivering a spine-tingling, hair-raising Haka before the whistle blows for kick-off.
 
-Uefa said "disciplinary proceedings" had been opened against Montenegro with one charge for "racist behaviour".
+The sights and sounds of the Haka -- feet stomping, fists pumping, vocal chords straining -- are deeply entrenched within New Zealand culture.
+"For me, the Haka is a symbol of who we are and where we come from," former All Blacks captain Richie McCaw told CNN in 2015.
+"This is who we are. Obviously it comes from a Maori background but I think it also resonates with all Kiwis """
+x = ' '.join([word for word in stringClean(news).split()])
+X = vect.transform([x])
+# print(model.predict(X))
+lables = ['business', 'entertainment', 'politics', 'sport', 'tech']
 
-The case will be dealt with by European football's governing body on 16 May.
-
-Montenegro coach Ljubisa Tumbakovic said he did not "hear or notice any" racist abuse.
-
-But England manager Gareth Southgate, speaking to BBC Radio 5 Live said he "definitely heard the racist abuse of Rose".
-
-"There's no doubt in my mind it happened," he added. "I know what I heard. It's unacceptable.
-
-"We have to make sure our players feel supported, they know the dressing room is there and we as a group of staff are there for them.
-
-"We have to report it through the correct channels. It is clear that so many people have heard it and we have to continue to make strides in our country and trust the authorities to take the right action."
-
-Anti-discrimination group Fare said they had identified the match as "high risk" for racism before the game and executive director Piara Powar said: "We had an observer present who picked up evidence of racial abuse.
-
-"Our monitoring team have been compiling the evidence we have before presenting it to Uefa."
-
-Montenegro also face other charges relating to crowd disturbances, the throwing of objects, setting off of fireworks and the blocking of stairways following the game at the Podgorica City Stadium.
-
-The minimum punishment from Uefa for an incident of racism is a partial stadium closure, while a second offence results in one match being played behind closed doors and a fine of 50,000 euros (£42,500).
-
-Uefa rules add: "Any subsequent offence is punished with more than one match behind closed doors, a stadium closure, the forfeiting of a match, the deduction of points and/or disqualification from the competition."""
-vectorizer = TfidfVectorizer(stop_words='english')
-X = vectorizer.fit_transform([news])
-print(X.shape)
-# y_pred = model.predict(X)
-
-# print(y_pred)
+prob = model.predict_proba(X)
+for value, lable in zip(prob[0], lables):
+    print(lable, "\t\t", round(value*100, 2), "%", sep="")
