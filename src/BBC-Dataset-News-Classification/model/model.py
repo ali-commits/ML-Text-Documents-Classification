@@ -3,8 +3,8 @@ import pandas as pd
 from sklearn.feature_extraction.text import TfidfVectorizer
 import numpy as np
 from sklearn.model_selection import train_test_split
-from sklearn.metrics import accuracy_score, cohen_kappa_score, confusion_matrix
-from sklearn.svm import SVC, LinearSVC
+from sklearn.metrics import accuracy_score
+from sklearn.svm import SVC
 import pickle
 
 
@@ -33,10 +33,10 @@ print("test size:", X_test.shape)
 model = SVC(gamma='scale', kernel='rbf', probability=True)
 
 
-model.fit(X_train, y_train)
+# model.fit(X_train, y_train)
 
-with open("model.bin", "wb") as modelFile:
-    pickle.dump(model, modelFile)
+# with open("model.bin", "wb") as modelFile:
+#     pickle.dump(model, modelFile)
 
 with open("model.bin", "rb") as modelFile:
     model = pickle.load(modelFile)
@@ -47,16 +47,22 @@ acc = accuracy_score(y_test, y_pred)
 print("\nAccuracy:  ", round(acc*100, 2), "%", sep="")
 
 
-news = """It's what representing their country is all about -- walking out in New Zealand's All Blacks jersey, facing their opposition, and delivering a spine-tingling, hair-raising Haka before the whistle blows for kick-off.
+with open("tfidf.bin", "wb") as featuresFile:
+    pickle.dump(vect, featuresFile)
 
-The sights and sounds of the Haka -- feet stomping, fists pumping, vocal chords straining -- are deeply entrenched within New Zealand culture.
-"For me, the Haka is a symbol of who we are and where we come from," former All Blacks captain Richie McCaw told CNN in 2015.
-"This is who we are. Obviously it comes from a Maori background but I think it also resonates with all Kiwis """
-x = ' '.join([word for word in stringClean(news).split()])
-X = vect.transform([x])
-# print(model.predict(X))
-lables = ['business', 'entertainment', 'politics', 'sport', 'tech']
+# news = """It's what representing their country is all about -- walking out in New Zealand's All Blacks jersey, facing their opposition, and delivering a spine-tingling, hair-raising Haka before the whistle blows for kick-off.
 
-prob = model.predict_proba(X)
-for value, lable in zip(prob[0], lables):
-    print(lable, "\t\t", round(value*100, 2), "%", sep="")
+# The sights and sounds of the Haka -- feet stomping, fists pumping, vocal chords straining -- are deeply entrenched within New Zealand culture.
+# "For me, the Haka is a symbol of who we are and where we come from," former All Blacks captain Richie McCaw told CNN in 2015.
+# "This is who we are. Obviously it comes from a Maori background but I think it also resonates with all Kiwis """
+# x = ' '.join([word for word in stringClean(news).split()])
+# X = vect.transform([x])
+# # print(model.predict(X))
+# lables = ['business', 'entertainment', 'politics', 'sport', 'tech']
+
+# prob = model.predict_proba(X)
+# for value, lable in zip(prob[0], lables):
+#     print(lable, "\t\t", round(value*100, 2), "%", sep="")
+print("\n\n\n")
+print(vect.stop_words_)
+print("\n\n")

@@ -113,3 +113,20 @@ nav h1 {
   border: 3px solid rgba(0, 0, 0, 0);
   background-clip: padding-box;
 }
+
+button {
+  border: 2px solid #455a64;
+  background: none;
+  margin: 20px auto;
+  text-align: center;
+  height: 50px;
+  width: 50px;
+  color: white;
+  border-radius: 25px;
+  transition: 0.25s;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #455a64;
+}
