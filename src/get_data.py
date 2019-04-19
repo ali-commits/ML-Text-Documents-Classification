@@ -3,9 +3,6 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 
 
-folders = ["business", "entertainment", "politics", "sport", "tech"]
-
-
 def getData(path="../dataset/"):
 
     os.chdir(path)
